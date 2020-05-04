@@ -1,0 +1,3 @@
+docker run -dit --name runnersweb -p 8080:80 -v /home/juan/mystuff/sw-projects/runners-team/runnersweb:/usr/local/apache2/htdocs/ httpd:2.4
+
+

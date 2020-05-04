@@ -1,0 +1,11 @@
+.tabSelectors {
+  font-size: 25px;
+  display: inline;
+  margin-left: 50px;
+  background-color: lightblue;
+}
+
+.tabContent {
+  margin-left: 50px;
+  margin-top: 25px;
+}

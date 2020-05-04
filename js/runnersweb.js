@@ -1,16 +1,35 @@
 
 $(document).ready(function() {
-  $("#inpNickname").val("thenickname1");
-  $("#inpName").val("thename1");
-  $("#inpSurname").val("thesurname1");
-  $("#inpEmail").val("theemail@mail.com");
-  $("#inpBirthdate").val("2000-01-03");
+  prepareRunners();
+  prepareRaces();
 });
 
 $("#inpFields .input").click(function() {
   $(this).val("");
 });
 
+function prepareRunners() {
+  $("#runnersTab").load("register.html");
+  $("#runnersTab").show();
+  $("#selectRunnersTab").click(function() {
+    $("#racesTab").hide();
+    $("#runnersTab").show();
+  });
+  $("#inpNickname").val("thenickname1");
+  $("#inpName").val("thename1");
+  $("#inpSurname").val("thesurname1");
+  $("#inpEmail").val("theemail@mail.com");
+  $("#inpBirthdate").val("2000-01-03");
+}
+
+function prepareRaces() {
+  $("#racesTab").load("races.html");
+  $("#racesTab").hide();
+  $("#selectRacesTab").click(function() {
+    $("#racesTab").show();
+    $("#runnersTab").hide();
+  });
+}
 function createRunner() {
   $.ajax({
     dataType: 'json',
