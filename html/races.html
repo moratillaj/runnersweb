@@ -1,25 +1,8 @@
 <div id="inpFields">
-  <!--
-  private String raceName;
-
-  @Id
-  private String runnerEmail;
-
-  @Id
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-  @JsonDeserialize(using = LocalDateDeserializer.class)
-  @JsonSerialize(using = LocalDateSerializer.class)
-  private LocalDate raceDate;
-
-  private Float distanceKm;
-  private boolean completed;
-  private Integer completedRaceTimeSeconds;
-  -->
-
   <div class="tag">raceName</div>
   <input id="inpRaceName" class="inp"></input>
-  <div class="tag">runnersMail</div>
-  <input id="inpRunnersMail" class="inp"></input>
+  <div class="tag">runnerEmail</div>
+  <input id="inpRunnerEmail" class="inp"></input>
   <div class="tag">RaceDate</div>
   <input id="inpRaceDate" class="inp"></input>
   <div class="tag">distanceKm</div>
@@ -32,4 +15,4 @@
 </div>
 <br/>
 <div>Result: </div>
-<div id="result"></div>
+<div id="resultRace"></div>

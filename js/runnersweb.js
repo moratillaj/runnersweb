@@ -1,3 +1,5 @@
+var runnersRestService = "http://localhost:8081";
+var racesRestService = "http://localhost:8082";
 
 $(document).ready(function() {
   prepareRunners();
@@ -29,16 +31,22 @@ function prepareRaces() {
     $("#racesTab").show();
     $("#runnersTab").hide();
   });
+  $("#inpRaceName").val("theracename1");
+  $("#inpRunnerEmail").val("theemail1@mail.com")
+  $("#inpRaceDate").val("2020-11-15")
+  $("#inpDistanceKm").val("42")
+  $("#inpCompleted").val("true");
+  $("#inpCompletedRaceTimeSeconds").val("123832");
 }
 function createRunner() {
   $.ajax({
     dataType: 'json',
     contentType:"application/json; charset=utf-8",
     type:'POST',
-    url: "http://localhost:8081",
+    url: runnersRestService,
     data: getRunnerJson(),
     success: function(data){
-      document.getElementById("result").innerHTML = JSON.stringify({data});
+      document.getElementById("resultRunner").innerHTML = JSON.stringify({data});
     }
   })
 }
@@ -51,4 +59,28 @@ function getRunnerJson() {
     email:$("#inpEmail").val(),
     birthDate:$("#inpBirthdate").val()
   });
+}
+
+function submitRace() {
+  $.ajax({
+    dataType: 'json',
+    contentType:"application/json; charset=utf-8",
+    type:'POST',
+    url: racesRestService,
+    data: getRaceJson(),
+    success: function(data){
+      document.getElementById("resultRace").innerHTML = JSON.stringify({data});
+    }
+  })
+}
+
+function getRaceJson() {
+  return JSON.stringify({
+    raceName:$("#inpRaceName").val(),
+    runnerEmail:$("#inpRunnerEmail").val(),
+    raceDate:$("#inpRaceDate").val(),
+    distanceKm:$("#inpDistanceKm").val(),
+    completed:$("#inpCompleted").val(),
+    completedRaceTimeSeconds:$("#inpCompletedRaceTimeSeconds").val()
+   });
 }
